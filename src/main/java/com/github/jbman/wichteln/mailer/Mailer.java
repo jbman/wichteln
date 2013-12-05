@@ -1,7 +1,9 @@
 package com.github.jbman.wichteln.mailer;
 
+import com.github.jbman.wichteln.model.MailData;
+
 public interface Mailer {
 
-	void sendMail(String sender, String recipient, String text);
+	void sendMail(MailData mailData);
 
 }

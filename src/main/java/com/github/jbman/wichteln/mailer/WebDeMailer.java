@@ -16,11 +16,16 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 
+import com.github.jbman.wichteln.model.MailData;
+
 public class WebDeMailer implements Mailer {
+
+	private final String userName;
 
 	private Session session;
 
-	public WebDeMailer() {
+	public WebDeMailer(String userName) {
+		this.userName = userName;
 		init();
 	}
 
@@ -34,10 +39,11 @@ public class WebDeMailer implements Mailer {
 
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
-				String password = JOptionPane.showInputDialog(null, "Password",
-						"Please enter pop3 mail password",
+				String password = JOptionPane.showInputDialog(null,
+						"Password for user '" + userName + "'",
+						"Please enter pop3 password",
 						JOptionPane.QUESTION_MESSAGE);
-				return new PasswordAuthentication("johbergmann", password);
+				return new PasswordAuthentication(userName, password);
 			}
 		};
 		session = Session.getDefaultInstance(props, auth);
@@ -64,30 +70,31 @@ public class WebDeMailer implements Mailer {
 	}
 
 	@Override
-	public void sendMail(String sender, String recipient, String text) {
+	public void sendMail(MailData mailData) {
 		try {
-			doSendMail(sender, recipient, text);
-			System.out.println("Mail sent to: " + recipient);
+			doSendMail(mailData);
+			System.out.println("Mail sent to: " + mailData.getRecipient());
 		} catch (AddressException e) {
-			System.out.println("Sending Mail to " + recipient + " failed.");
+			System.out.println("Sending Mail to " + mailData.getRecipient()
+					+ " failed.");
 			throw new IllegalStateException(e);
 		} catch (MessagingException e) {
-			System.out.println("Sending Mail to " + recipient + " failed.");
+			System.out.println("Sending Mail to " + mailData.getRecipient()
+					+ " failed.");
 			throw new IllegalStateException(e);
 		}
 	}
 
-	private void doSendMail(String sender, String recipient, String text)
-			throws MessagingException {
-		InternetAddress from = new InternetAddress(sender);
-		InternetAddress to = new InternetAddress(recipient);
+	private void doSendMail(MailData mailData) throws MessagingException {
+		InternetAddress from = new InternetAddress(mailData.getSender());
+		InternetAddress to = new InternetAddress(mailData.getRecipient());
 
 		MimeMessage message = new MimeMessage(session);
 		message.setFrom(from);
 		message.addRecipient(Message.RecipientType.TO, to);
 
-		message.setSubject("Weihnachtswichteln 2013");
-		message.setText(text);
+		message.setSubject(mailData.getSubject());
+		message.setText(mailData.getText());
 		Transport.send(message);
 	}
 }

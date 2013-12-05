@@ -10,9 +10,17 @@ import com.github.jbman.wichteln.impl.WichtelFromFile;
 import com.github.jbman.wichteln.impl.WichtelLosung;
 import com.github.jbman.wichteln.mailer.DummyMailer;
 import com.github.jbman.wichteln.mailer.Mailer;
+import com.github.jbman.wichteln.mailer.WebDeMailer;
+import com.github.jbman.wichteln.model.MailData;
+import com.github.jbman.wichteln.text.FromTemplateMailTextProvider;
+import com.github.jbman.wichteln.text.MailTextProvider;
 
 /**
  * Main class to send a mail to every wichtel.
+ * <p/>
+ * Wichtel names and theri e-mail addresses are read from a file wichtel.txt
+ * which contains <i>name, e-mail</i> in every line. The first wichtel is used
+ * as sender for the mails.
  * 
  * @author Johannes Bergmann
  */
@@ -20,50 +28,38 @@ public class WichtelPost {
 
 	private final Mailer mailer;
 	private final List<Wichtel> allWichtel;
+	private final MailTextProvider mailTextProvider = new FromTemplateMailTextProvider();
 
 	public static void main(String[] args) throws MessagingException,
 			FileNotFoundException {
-		// final Mailer mailer = new WebDeMailer();
-		final Mailer mailer = new DummyMailer();
+		final Mailer mailer;
+		if (args.length > 0 && args[0].equals("mail")) {
+			String userName = args[1];
+			mailer = new WebDeMailer(userName);
+		} else {
+			System.out
+					.println("This is a dry run. Run with arguments 'mail <username>' to really send mails with a web.de account");
+			mailer = new DummyMailer();
+		}
 		WichtelFromFile wff = new WichtelFromFile("wichtel.txt");
 		new WichtelPost(mailer, wff.readWichtel()).run();
 	}
 
-	private WichtelPost(final Mailer mailer, final List<Wichtel> teilnehmer) {
+	private WichtelPost(final Mailer mailer, final List<Wichtel> wichtelList) {
 		this.mailer = mailer;
-		this.allWichtel = teilnehmer;
-	}
-
-	private String createText(Wichtel wichtel) {
-		return "Lieber Weihnachtswichtel "
-				+ wichtel.getName()
-				+ ",\n"
-				+ "\n"
-				+ "damit Du dieses Jahr zu Weihnachten nicht zu viel zu schleppen hast, wurde Dir\n"
-				+ "ein besonders braver Mensch zugeteilt, den es zu beschenken gilt.\n"
-				+ "\n"
-				+ "Bitte suche etwas Nettes für: "
-				+ wichtel.getBeschenkterName()
-				+ "\n"
-				+ "\n"
-				+ "Es muss kein Haus, Auto oder Diammantring sein.\n"
-				+ wichtel.getBeschenkterName()
-				+ " soll sich über eine Kleinigkeit im Wert von 10 - 15 EUR freuen können.\n"
-				+ "\n"
-				+ "Frohes Wichteln wünschen Dir,\n"
-				+ "Wichtel Petra und Wichtel Johannes\n"
-				+ "\n"
-				+ "PS: Die Zuteilung wurde automatisiert und zufällig durch den Wichtel-Mailer erstellt.\n"
-				+ "    Sie ist bis zur Beschenkung streng vertraulich zu behandeln!\n";
+		this.allWichtel = wichtelList;
 	}
 
 	public void run() {
+		Wichtel sender = allWichtel.get(0);
 		WichtelLosung losung = new WichtelLosung(allWichtel);
 		losung.auslosungPermutation();
 
 		for (Wichtel wichtel : allWichtel) {
-			mailer.sendMail("johbergmann@web.de", wichtel.getEmail(),
-					createText(wichtel));
+			mailer.sendMail(new MailData(sender.getEmail(), //
+					wichtel.getEmail(), //
+					mailTextProvider.getSubject(), //
+					mailTextProvider.getText(wichtel)));
 		}
 	}
 }
