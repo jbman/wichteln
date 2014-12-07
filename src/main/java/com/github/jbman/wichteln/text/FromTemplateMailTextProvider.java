@@ -13,12 +13,7 @@ public class FromTemplateMailTextProvider implements MailTextProvider {
 	private static final String MAIL_TEMPLATE_FILE = "mail-template.txt";
 
 	@Override
-	public String getSubject() {
-		return "Weihnachtswichteln 2013";
-	}
-
-	@Override
-	public String getText(Wichtel wichtel) {
+	public MailContent getMail(Wichtel wichtel) {
 		MustacheFactory mf = new DefaultMustacheFactory();
 		Mustache mustache = mf.compile(MAIL_TEMPLATE_FILE);
 		StringWriter stringWriter = new StringWriter();
@@ -29,6 +24,17 @@ public class FromTemplateMailTextProvider implements MailTextProvider {
 					"Writing mail text from template file '"
 							+ MAIL_TEMPLATE_FILE + "' failed", e);
 		}
-		return stringWriter.toString();
+		final String rendered = stringWriter.toString();
+
+		int firstLineBreak = rendered.indexOf("\n");
+		if (firstLineBreak <= 0) {
+			throw new IllegalStateException(
+					"Mail template file "
+							+ MAIL_TEMPLATE_FILE
+							+ "must have at least 2 lines (First line is for the subject)");
+		}
+		final String subject = rendered.substring(0, firstLineBreak);
+		final String text = rendered.substring(firstLineBreak + 1);
+		return new MailContent(subject, text);
 	}
 }

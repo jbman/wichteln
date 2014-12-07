@@ -1,12 +1,14 @@
-Lieber Weihnachtswichtel {{name}},
+Nikolauspost für Weihnachtswichtel {{name}}
+Hallo Weihnachtswichtel {{name}},
 
-damit Du dieses Jahr zu Weihnachten nicht zu viel zu schleppen hast, wurde Dir
-ein besonders braver Mensch zugeteilt, den es zu beschenken gilt.
+der Nikolaus verrät Dir heute einen Freund. Dieser würde sich riesig über ein Weihnachtsgeschenk 
+von Dir freuen. Es ist:
 				
-Bitte suche etwas Nettes für: {{beschenkterName}}
+{{beschenkterName}}
 				
-Es muss kein Dreirad, Cabrio oder Goldbarren sein.
-{{beschenkterName}} soll sich über eine Kleinigkeit im Wert von 10 - 15 EUR freuen können.
+Das Geschenk soll kein Moped, Hoverboard oder Pontiac Firebird Trans Am sein.
+{{beschenkterName}} soll sich über eine Kleinigkeit freuen können. Ausgaben so um 
+die 15 Euro sollten völlig reichen.
 				
 Frohes Wichteln wünscht Dir,
 dein Wichtel-Mailer
@@ -14,11 +16,8 @@ dein Wichtel-Mailer
 PS: Die Zuteilung wurde automatisiert und zufällig durch den Wichtel-Mailer erstellt.
     Sie ist bis zur Beschenkung streng vertraulich zu behandeln!
     
-　　　　　　　　　
-　　　　 　／￣ ＼　
-　　　　　　　　 0⌒>　　 ヽ
-　　　　　　　==　⊂ﾆﾆﾆ⊃
-　　　　　==( ⌒ヽ/　´_ゝ`）
-(´⌒;;;(~==〔￣￣￣￣￣〕
-(´⌒(´⌒;;~　ヽ ◎――◎
- 
+PPS: Fall bei Dir absoluter Ratlosigkeit bei der Geschenkwahl herrschtm, darfst du 
+     jemanden von {{beschenkterName}} als Vertrauten hinzuziehen.
+          
+☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃
+   

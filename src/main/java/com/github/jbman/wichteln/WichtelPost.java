@@ -13,6 +13,7 @@ import com.github.jbman.wichteln.mailer.Mailer;
 import com.github.jbman.wichteln.mailer.WebDeMailer;
 import com.github.jbman.wichteln.model.MailData;
 import com.github.jbman.wichteln.text.FromTemplateMailTextProvider;
+import com.github.jbman.wichteln.text.MailContent;
 import com.github.jbman.wichteln.text.MailTextProvider;
 
 /**
@@ -56,10 +57,11 @@ public class WichtelPost {
 		losung.auslosungPermutation();
 
 		for (Wichtel wichtel : allWichtel) {
+			MailContent content = mailTextProvider.getMail(wichtel);
 			mailer.sendMail(new MailData(sender.getEmail(), //
 					wichtel.getEmail(), //
-					mailTextProvider.getSubject(), //
-					mailTextProvider.getText(wichtel)));
+					content.getSubject(), //
+					content.getText()));
 		}
 	}
 }

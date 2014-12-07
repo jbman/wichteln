@@ -9,7 +9,5 @@ import com.github.jbman.wichteln.impl.Wichtel;
  */
 public interface MailTextProvider {
 
-	public String getSubject();
-
-	public String getText(Wichtel wichtel);
+	public MailContent getMail(Wichtel wichtel);
 }
