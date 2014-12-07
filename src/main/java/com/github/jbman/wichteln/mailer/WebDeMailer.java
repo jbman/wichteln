@@ -34,6 +34,9 @@ public class WebDeMailer implements Mailer {
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.web.de");
 		props.put("mail.pop3.host", "pop3.web.de");
+		// Enable SSL
+		props.put("mail.pop3.ssl.enable", "true");
+		props.put("mail.smtp.starttls.enable", "true");
 
 		Authenticator auth = new Authenticator() {
 
