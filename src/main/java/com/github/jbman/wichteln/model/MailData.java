@@ -36,4 +36,9 @@ public class MailData {
 		return text;
 	}
 
+	@Override
+	public String toString() {
+		return "MailData [sender=" + sender + ", recipient=" + recipient
+				+ ", subject=" + subject + ", text=" + text + "]";
+	}
 }
