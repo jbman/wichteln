@@ -17,7 +17,7 @@ public class WichtelLosungTest {
 
 		for (int i = 1; i <= 7; i++) {
 			Wichtel einWichtel = new Wichtel("wichtel_" + i, "wichtel_" + i
-					+ "@test.de");
+					+ "@test.de", "wichtel_"+(i-1));
 			teilnehmer.add(einWichtel);
 		}
 

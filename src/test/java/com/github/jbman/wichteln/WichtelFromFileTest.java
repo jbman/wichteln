@@ -15,9 +15,9 @@ public class WichtelFromFileTest {
 	public void testReadWichtelFile() {
 		List<Wichtel> wichtel = new WichtelFromFile(
 				"src/test/resources/wichtel-test.txt").readWichtel();
-		assertEquals(new Wichtel("Amy", "amy@mailhost.com"), wichtel.get(0));
-		assertEquals(new Wichtel("Bert", "bert@epost.de"), wichtel.get(1));
-		assertEquals(new Wichtel("Cecile", "cecile.albert@mail.com"),
+		assertEquals(new Wichtel("Amy", "amy@mailhost.com","Bert"), wichtel.get(0));
+		assertEquals(new Wichtel("Bert", "bert@epost.de","Cecile"), wichtel.get(1));
+		assertEquals(new Wichtel("Cecile", "cecile.albert@mail.com","Amy"),
 				wichtel.get(2));
 		assertEquals(3, wichtel.size());
 	}

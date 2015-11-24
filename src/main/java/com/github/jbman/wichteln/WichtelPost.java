@@ -39,7 +39,7 @@ public class WichtelPost {
 			mailer = new WebDeMailer(userName);
 		} else {
 			System.out
-					.println("This is a dry run. Run with arguments 'mail <username>' to really send mails with a web.de account");
+					.println("This is a dry run. Run with arguments 'mail <username@web.de>' to really send mails with a web.de account");
 			mailer = new DummyMailer();
 		}
 		WichtelFromFile wff = new WichtelFromFile("wichtel.txt");
@@ -58,7 +58,7 @@ public class WichtelPost {
 
 		for (Wichtel wichtel : allWichtel) {
 			MailContent content = mailTextProvider.getMail(wichtel);
-			mailer.sendMail(new MailData(sender.getEmail(), //
+			mailer.sendMail(new MailData(((WebDeMailer) mailer).getUserName(), //
 					wichtel.getEmail(), //
 					content.getSubject(), //
 					content.getText()));
