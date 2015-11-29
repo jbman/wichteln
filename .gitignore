@@ -1,0 +1,7 @@
+/bin
+/target
+/wichtel*.txt
+/.classpath
+/.project
+/.metadata
+/.settings
