@@ -8,9 +8,9 @@ public class Wichtel implements Comparable<Wichtel> {
 
 	private Wichtel beschenkter;
 
-	private String blockiert;
+	private final String blockiert;
 
-	public Wichtel(String name, String email, String blockiert) {
+	public Wichtel(final String name, final String email, final String blockiert) {
 		this.name = name;
 		this.email = email;
 		this.blockiert = blockiert;
@@ -28,7 +28,11 @@ public class Wichtel implements Comparable<Wichtel> {
 		return beschenkter.name;
 	}
 
-	public void setBeschenkter(Wichtel beschenkter) {
+	public Wichtel getBeschenkter() {
+		return beschenkter;
+	}
+
+	public void setBeschenkter(final Wichtel beschenkter) {
 		this.beschenkter = beschenkter;
 	}
 
@@ -42,7 +46,7 @@ public class Wichtel implements Comparable<Wichtel> {
 	}
 
 	@Override
-	public boolean equals(Object other) {
+	public boolean equals(final Object other) {
 		if (!(other instanceof Wichtel)) {
 			return false;
 		}
@@ -50,7 +54,7 @@ public class Wichtel implements Comparable<Wichtel> {
 	}
 
 	@Override
-	public int compareTo(Wichtel other) {
+	public int compareTo(final Wichtel other) {
 		return this.name.compareTo(other.name);
 	}
 }

@@ -1,4 +1,4 @@
-package com.github.jbman.wichteln;
+package com.github.jbman.wichteln.impl;
 
 import static org.junit.Assert.*;
 
