@@ -29,6 +29,10 @@ public class WebDeMailer implements Mailer {
 		init();
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
 	private void init() {
 
 		Properties props = new Properties();
@@ -37,6 +41,9 @@ public class WebDeMailer implements Mailer {
 		// Enable SSL
 		props.put("mail.pop3.ssl.enable", "true");
 		props.put("mail.smtp.starttls.enable", "true");
+
+		//enable SMTP Authentication
+		props.put("mail.smtp.auth","true");
 
 		Authenticator auth = new Authenticator() {
 

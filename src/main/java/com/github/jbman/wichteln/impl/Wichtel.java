@@ -8,9 +8,12 @@ public class Wichtel implements Comparable<Wichtel> {
 
 	private Wichtel beschenkter;
 
-	public Wichtel(String name, String email) {
+	private String blockiert;
+
+	public Wichtel(String name, String email, String blockiert) {
 		this.name = name;
 		this.email = email;
+		this.blockiert = blockiert;
 	}
 
 	public String getName() {
@@ -27,6 +30,10 @@ public class Wichtel implements Comparable<Wichtel> {
 
 	public void setBeschenkter(Wichtel beschenkter) {
 		this.beschenkter = beschenkter;
+	}
+
+	public String getBlockiert() {
+		return blockiert;
 	}
 
 	@Override

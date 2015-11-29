@@ -1,3 +1,3 @@
-Amy, amy@mailhost.com
-Bert, bert@epost.de
-Cecile, cecile.albert@mail.com
+Amy, amy@mailhost.com, Bert
+Bert, bert@epost.de, Cecile
+Cecile, cecile.albert@mail.com, Amy
