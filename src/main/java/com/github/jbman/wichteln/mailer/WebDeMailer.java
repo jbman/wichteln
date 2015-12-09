@@ -24,7 +24,7 @@ public class WebDeMailer implements Mailer {
 
 	private Session session;
 
-	public WebDeMailer(String userName) {
+	public WebDeMailer(final String userName) {
 		this.userName = userName;
 		init();
 	}
@@ -35,7 +35,7 @@ public class WebDeMailer implements Mailer {
 
 	private void init() {
 
-		Properties props = new Properties();
+		final Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.web.de");
 		props.put("mail.pop3.host", "pop3.web.de");
 		// Enable SSL
@@ -45,15 +45,22 @@ public class WebDeMailer implements Mailer {
 		//enable SMTP Authentication
 		props.put("mail.smtp.auth","true");
 
-		Authenticator auth = new Authenticator() {
+		final Authenticator auth = new Authenticator() {
+			private PasswordAuthentication passwordAuthentication;
 
-			@Override
-			protected PasswordAuthentication getPasswordAuthentication() {
-				String password = JOptionPane.showInputDialog(null,
+			private PasswordAuthentication requestPasswordWithDialog() {
+				final String password = JOptionPane.showInputDialog(null,
 						"Password for user '" + userName + "'",
 						"Please enter pop3 password",
 						JOptionPane.QUESTION_MESSAGE);
 				return new PasswordAuthentication(userName, password);
+			}
+			@Override
+			protected PasswordAuthentication getPasswordAuthentication() {
+				if (passwordAuthentication == null) {
+					passwordAuthentication = requestPasswordWithDialog();
+				}
+				return passwordAuthentication;
 			}
 		};
 		session = Session.getDefaultInstance(props, auth);
@@ -62,44 +69,44 @@ public class WebDeMailer implements Mailer {
 		Store store;
 		try {
 			store = session.getStore("pop3");
-		} catch (NoSuchProviderException e) {
+		} catch (final NoSuchProviderException e) {
 			throw new IllegalStateException(e);
 		}
 
 		try {
 			store.connect();
-		} catch (AuthenticationFailedException e) {
+		} catch (final AuthenticationFailedException e) {
 			System.out.println(e.getMessage());
 			if (!e.getMessage().startsWith(
 					"Zeitabstand zwischen zwei Logins unterschritten")) {
 				throw new IllegalStateException(e);
 			}
-		} catch (MessagingException e) {
+		} catch (final MessagingException e) {
 			throw new IllegalStateException(e);
 		}
 	}
 
 	@Override
-	public void sendMail(MailData mailData) {
+	public void sendMail(final MailData mailData) {
 		try {
 			doSendMail(mailData);
 			System.out.println("Mail sent to: " + mailData.getRecipient());
-		} catch (AddressException e) {
+		} catch (final AddressException e) {
 			System.out.println("Sending Mail to " + mailData.getRecipient()
 					+ " failed.");
 			throw new IllegalStateException(e);
-		} catch (MessagingException e) {
+		} catch (final MessagingException e) {
 			System.out.println("Sending Mail to " + mailData.getRecipient()
 					+ " failed.");
 			throw new IllegalStateException(e);
 		}
 	}
 
-	private void doSendMail(MailData mailData) throws MessagingException {
-		InternetAddress from = new InternetAddress(mailData.getSender());
-		InternetAddress to = new InternetAddress(mailData.getRecipient());
+	private void doSendMail(final MailData mailData) throws MessagingException {
+		final InternetAddress from = new InternetAddress(mailData.getSender());
+		final InternetAddress to = new InternetAddress(mailData.getRecipient());
 
-		MimeMessage message = new MimeMessage(session);
+		final MimeMessage message = new MimeMessage(session);
 		message.setFrom(from);
 		message.addRecipient(Message.RecipientType.TO, to);
 

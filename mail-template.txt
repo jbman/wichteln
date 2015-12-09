@@ -1,28 +1,21 @@
-Nikolauspost für Weihnachtswichtel {{name}}
+Ein Eilauftrag für Weihnachtswichtel {{name}}
 Hallo Weihnachtswichtel {{name}},
 
-der Nikolaus verrät Dir heute einen Freund. Dieser würde sich riesig über ein Weihnachtsgeschenk 
-von Dir freuen. Es ist:
+schaffst Du es bis Weihnachten ein Geschenk für  
 				
 {{beschenkterName}}
-				
-Das Geschenk soll kein Moped, Hoverboard oder Pontiac Firebird Trans Am sein.
-{{beschenkterName}} soll sich über eine Kleinigkeit freuen können. Ausgaben so um 
-die 15 Euro sollten völlig reichen.
+
+zu besorgen?
+
+Es ist leider nicht mehr viel Zeit, aber es soll ja auch nur was kleines sein.				
+Ausgaben so um die 15 Euro sollten völlig reichen. Außerdem gilt: Auch ein verspätetes Überraschungsgeschenk macht Spaß!
+Also überleg Dir schnell was und freue Dich auf Deine Überraschung.
 				
 Frohes Wichteln wünscht Dir,
-dein Nikolaus
+der Wichtl-Mailer
 
-PS: Die Zuteilung wurde automatisiert und zufällig durch den Wichtel-Mailer erstellt.
-    Sie ist bis zur Beschenkung streng vertraulich zu behandeln!
+PS: Wie immer gilt: Die Zuteilung wurde automatisiert, der Rechtsweg ist ausgeschlossen und die Mail bitte bis zum Verschenken vertraulich behandlen.
+
     
-PPS: Fall bei Dir absolute Ratlosigkeit bei der Geschenkwahl herrscht, darfst du 
-     jemanden von {{beschenkterName}} als Vertrauten hinzuziehen.
-
-PPPS: Der Nikolaus hat diese Mail leicht verspätet gesendet, da er das Mail-Programm
-      noch umschreiben musste. Der Mail-Dienst unterstützt nämlich seit diesem Jahr 
-      nur noch sichere Verbindungen über SSL. Damit ist diese Mail nun noch geheimer 
-      und konnte auf dem Weg zu Dir nicht mitgelesen werden :-) 
+    
           
-☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃
-   
