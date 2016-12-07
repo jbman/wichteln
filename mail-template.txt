@@ -1,21 +1,16 @@
-Ein Eilauftrag für Weihnachtswichtel {{name}}
-Hallo Weihnachtswichtel {{name}},
+Korrektur lieber Weihnachtwichtel, es hat ein Wichtel gefehlt!
+Hallo Wichtel {{name}},
 
-schaffst Du es bis Weihnachten ein Geschenk für  
+Bitte lösche die vorige email, diese ist die richtige!
+Dir bleibt nicht viel Zeit, weil der Wichtel-Mailer wieder mal spät dran ist.
+
+Über ein Geschek von Dir würde sich {{beschenkterName}} sehr freuen!
+
+Was kleines für 10-15 EUr wäre nett. Falls es nicht vor Weihnachten ankommt ist {{beschenkterName}} sicher auch nicht gleich traurig.
+Hauptache Du findest dieses Jahr noch ein Geschenk. Jetzt schnell an die Arbeit lieber Wichtel!
+
 				
-{{beschenkterName}}
+Frohes schenken wünscht Dir,
+Der Wichtel-Mailer 
 
-zu besorgen?
-
-Es ist leider nicht mehr viel Zeit, aber es soll ja auch nur was kleines sein.				
-Ausgaben so um die 15 Euro sollten völlig reichen. Außerdem gilt: Auch ein verspätetes Überraschungsgeschenk macht Spaß!
-Also überleg Dir schnell was und freue Dich auf Deine Überraschung.
-				
-Frohes Wichteln wünscht Dir,
-der Wichtl-Mailer
-
-PS: Wie immer gilt: Die Zuteilung wurde automatisiert, der Rechtsweg ist ausgeschlossen und die Mail bitte bis zum Verschenken vertraulich behandlen.
-
-    
-    
-          
+PS: Vielen Dank fürs mitwichteln (Ho, Ho Ho)!
